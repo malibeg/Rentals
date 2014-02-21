@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Rentals.Models.Item>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<p>
+    <ul id="update-items" data-bind="foreach: items">
+        <li>
+            <div>
+                <div class="item">Product ID</div> <span data-bind="text: $data.Id"></span>
+            </div>
+            <div>
+                <div class="item">Title</div>
+                <input type="text" data-bind="value: $data.Title" />
+            </div>
+            <div>
+                <div class="item">Description</div>
+                <input type="text" data-bind="value: $data.Description" />
+            </div>
+            <div>
+                <div class="item">RentalPrice ($)</div>
+                <input type="text" data-bind="value: $data.RentalPrice" />
+            </div>
+            <div>
+                <input type="button" value="Update" data-bind="click: $root.update" />
+                <input type="button" value="Delete Item" data-bind="click: $root.remove" />
+            </div>
+        </li>
+    </ul>
+
+</p>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchuseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentalDuration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentalPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            Category
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PurchuseDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RentalDuration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RentalPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemCategory.FirstOrDefault().Category.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ItemId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ItemId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ItemId })
+        </td>
+    </tr>
+}
+
+</table>

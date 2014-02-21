@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c849f04ac3ec43faac5d2519dca5d896" Name="Diagram1">
+        <EntityTypeShape EntityType="RentalsModel.Address" Width="1.5" PointX="11.125" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RentalsModel.Category" Width="1.5" PointX="5.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="RentalsModel.City" Width="1.5" PointX="11.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RentalsModel.Customer" Width="1.5" PointX="9.375" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RentalsModel.Item" Width="1.5" PointX="8.875" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RentalsModel.ItemCategory" Width="1.5" PointX="7.5" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RentalsModel.JobRole" Width="1.5" PointX="1.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RentalsModel.Payment" Width="1.5" PointX="4.625" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RentalsModel.Rental" Width="1.5" PointX="7.5" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RentalsModel.Staff" Width="1.5" PointX="4.5" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="RentalsModel.Address_City" ManuallyRouted="false" />
+        <AssociationConnector Association="RentalsModel.Customer_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="RentalsModel.FK_Staff_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="RentalsModel.ItemCategory_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="RentalsModel.FK_Rental_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="RentalsModel.FK_Rental_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="RentalsModel.ItemCategory_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="RentalsModel.FK_Staff_JobRole" ManuallyRouted="false" />
+        <AssociationConnector Association="RentalsModel.Rental_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="RentalsModel.FK_Staff_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="RentalsModel.Payment_Staff" />
+        <AssociationConnector Association="RentalsModel.FK_Payment_Customer" />
+        <AssociationConnector Association="RentalsModel.FK_Payment_Rental" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
