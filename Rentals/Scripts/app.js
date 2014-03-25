@@ -1,12 +1,8 @@
-﻿$(document).ready(function() {
-    ko.applyBindings(new ProductsViewModel());
-});
-
-function ProductsViewModel() {
+﻿function ProductsViewModel() {
     var self = this;
     self.items = ko.observableArray();
 
-    var baseUri = '/api/MyItems';
+    var baseUri = 'api/MyItems';
 
     // New code
     self.create = function(formElement) {
@@ -32,4 +28,7 @@ function ProductsViewModel() {
     };
 
     $.getJSON(baseUri, self.items);
+    alert(self.items().length);
 }
+
+

@@ -18,7 +18,6 @@ namespace Rentals.Controllers
 
         public ItemsController()
         {
-            db = new RentalsEntities();
         }
 
         // GET api/Default1

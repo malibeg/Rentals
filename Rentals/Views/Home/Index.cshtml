@@ -1,11 +1,43 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@section Scripts {
+@Scripts.Render("~/bundles/konckout")
+    <script type="text/javascript">
+        $(document).ready(function() {
+            ko.applyBindings(new ProductsViewModel());
+        });
 
+    </script>
+}
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+    <h1>Items</h1>
+    <p>
+        <ul id="update-items" data-bind="foreach: items">
+            <li>
+                <div>
+                    <div class="item">Product ID</div> <span data-bind="text: $data.Id"></span>
+                </div>
+                <div>
+                    <div class="item">Title</div>
+                    <input type="text" data-bind="value: $data.Title" />
+                </div>
+                <div>
+                    <div class="item">Description</div>
+                    <input type="text" data-bind="value: $data.Description" />
+                </div>
+                <div>
+                    <div class="item">RentalPrice ($)</div>
+                    <input type="text" data-bind="value: $data.RentalPrice" />
+                </div>
+                <div>
+                    <input type="button" value="Update" data-bind="click: $root.update" />
+                    <input type="button" value="Delete Item" data-bind="click: $root.remove" />
+                </div>
+            </li>
+        </ul>
+
+    </p>
 </div>
 
 <div class="row">
