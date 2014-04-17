@@ -21,7 +21,7 @@ namespace Rentals.Models
     
         public byte CategoryId { get; set; }
         public string Name { get; set; }
-        public byte[] LastUpdate { get; set; }
+        internal byte[] LastUpdate { get; set; }
     
         public virtual ICollection<ItemCategory> ItemCategory { get; set; }
     }

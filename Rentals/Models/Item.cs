@@ -27,7 +27,7 @@ namespace Rentals.Models
         public byte RentalDuration { get; set; }
         public decimal RentalPrice { get; set; }
         public decimal Price { get; set; }
-        public byte[] LastUpdate { get; set; }
+        internal byte[] LastUpdate { get; set; }
     
         public virtual ICollection<Rental> Rentals { get; set; }
         public virtual ICollection<ItemCategory> ItemCategory { get; set; }

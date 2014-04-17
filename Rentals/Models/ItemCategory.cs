@@ -17,7 +17,7 @@ namespace Rentals.Models
         public int Id { get; set; }
         public int ItemId { get; set; }
         public byte CategoryId { get; set; }
-        public byte[] LastUpdate { get; set; }
+        internal byte[] LastUpdate { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual Item Item { get; set; }

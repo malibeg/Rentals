@@ -1,54 +1,41 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-@section Scripts {
-@Scripts.Render("~/bundles/konckout")
-    <script type="text/javascript">
-        $(document).ready(function() {
-            ko.applyBindings(new ProductsViewModel());
-        });
 
-    </script>
-}
 <div class="jumbotron">
     <h1>Items</h1>
-    <p>
-        <ul id="update-items" data-bind="foreach: items">
-            <li>
-                <div>
-                    <div class="item">Product ID</div> <span data-bind="text: $data.Id"></span>
-                </div>
-                <div>
-                    <div class="item">Title</div>
-                    <input type="text" data-bind="value: $data.Title" />
-                </div>
-                <div>
-                    <div class="item">Description</div>
-                    <input type="text" data-bind="value: $data.Description" />
-                </div>
-                <div>
-                    <div class="item">RentalPrice ($)</div>
-                    <input type="text" data-bind="value: $data.RentalPrice" />
-                </div>
-                <div>
-                    <input type="button" value="Update" data-bind="click: $root.update" />
-                    <input type="button" value="Delete Item" data-bind="click: $root.remove" />
-                </div>
-            </li>
-        </ul>
 
-    </p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Rental items</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            <ul id="update-items" data-bind="foreach: items">
+                <li>
+                    <div>
+                        <div class="input-prepend">Product ID</div> <span data-bind="text: $data.Id"></span>
+                    </div>
+                    <div>
+                        <div class="input-prepend">Title</div>
+                        <input type="text" data-bind="value: $data.Title" />
+                    </div>
+                    <div>
+                        <div class="input-prepend">Description</div>
+                        <input type="text" data-bind="value: $data.Description" />
+                    </div>
+                    <div>
+                        <div class="input-prepend">RentalPrice ($)</div>
+                        <input type="text" data-bind="value: $data.RentalPrice" />
+                    </div>
+                    <div>
+                        <input class="btn btn-default" type="button" value="Update" data-bind="click: $root.update" />
+                        <input class="btn btn-default" type="button" value="Delete Item" data-bind="click: $root.remove" />
+                    </div>
+                </li>
+            </ul>
+
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
         <h2>Get more libraries</h2>
@@ -61,3 +48,7 @@
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
 </div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/konckout")
+}

@@ -20,14 +20,14 @@ namespace Rentals.Controllers
         {
         }
 
-        // GET api/Default1
-        [Route("api/customers")]
-        public IQueryable<Item> GetItem()
+        // GET api/Items
+        public List<Item> GetItem()
         {
-            return db.Item;
+            var result = db.Item.ToList();
+            return result;
         }
 
-        // GET api/Default1/5
+        // GET api/Items/5
         [ResponseType(typeof(Item))]
         public IHttpActionResult GetItem(int id)
         {
@@ -40,11 +40,15 @@ namespace Rentals.Controllers
             return Ok(item);
         }
 
-        // PUT api/Default1/5
+        // PUT api/Items/5
         public IHttpActionResult PutItem(int id, Item item)
         {
+            string body = Request.Content.ReadAsStringAsync().Result;
             if (!ModelState.IsValid)
             {
+                string[] errors = ModelState.Where(x => x.Value.Errors.Count > 0)
+                                .Select(x => x.Key.ToString() + x.Value.Errors.ToString())
+                                .ToArray();
                 return BadRequest(ModelState);
             }
 
@@ -74,13 +78,16 @@ namespace Rentals.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST api/Default1
+        // POST api/Items
         [ResponseType(typeof(Item))]
         public IHttpActionResult PostItem(Item item)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                string[] errors = ModelState.Where(x => x.Value.Errors.Count > 0)
+                                .Select(x => x.Key.ToString() + x.Value.Errors.ToString())
+                                .ToArray();
+                return BadRequest(String.Join(", ", errors));
             }
 
             db.Item.Add(item);
@@ -89,7 +96,7 @@ namespace Rentals.Controllers
             return CreatedAtRoute("DefaultApi", new { id = item.ItemId }, item);
         }
 
-        // DELETE api/Default1/5
+        // DELETE api/Items/5
         [ResponseType(typeof(Item))]
         public IHttpActionResult DeleteItem(int id)
         {

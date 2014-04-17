@@ -12,7 +12,8 @@ namespace Rentals
                         "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+                        "~/Scripts/jquery.validate*",
+                        "~/Scripts/validation-fix.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/konckout").Include(
                         "~/Scripts/knockout-3.0.0.debug.js",

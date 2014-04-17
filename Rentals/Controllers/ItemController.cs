@@ -88,7 +88,7 @@ namespace Rentals.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="ItemId,Title,Description,PurchuseDate,RentalDuration,RentalPrice,Price,LastUpdate")] Item item)
+        public ActionResult Edit([Bind(Include="ItemId,Title,Description,PurchuseDate,RentalDuration,RentalPrice,Price,Version")] Item item)
         {
             if (ModelState.IsValid)
             {

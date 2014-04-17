@@ -4,24 +4,49 @@ using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Web.WebPages;
 
 namespace Rentals.Models
 {
-    public class PartialClasses
+
+    [MetadataType(typeof(ItemMetadata))]
+    public partial class Item
     {
-        [MetadataType(typeof(ItemMetadata))]
-        public partial class Item
+        public virtual string Version
         {
-            [DataType(DataType.Date)]
-            public  DateTime PurchuseDate { get; set; }
+            get { return LastUpdate == null ? null : Convert.ToBase64String(LastUpdate); }
+            set { LastUpdate = value.IsEmpty() ? null : Convert.FromBase64String(value); }
         }
 
-        public class MyConfig : DbConfiguration
+    }
+
+    [MetadataType(typeof(RowVersionMetadata))]
+    public partial class ItemCategory
+    {
+        public virtual string Version
         {
-            public MyConfig()
-            {
-                //AddInterceptor(new NLogCommandInterceptor());
-            }
+            get { return LastUpdate == null ? null : Convert.ToBase64String(LastUpdate); }
+            set { LastUpdate = value.IsEmpty() ? null : Convert.FromBase64String(value); }
+        }
+
+    }
+
+
+    [MetadataType(typeof(RowVersionMetadata))]
+    public partial class Category
+    {
+        public virtual string Version
+        {
+            get { return LastUpdate == null ? null : Convert.ToBase64String(LastUpdate); }
+            set { LastUpdate = value.IsEmpty() ? null : Convert.FromBase64String(value); }
+        }
+    }
+
+    public class MyConfig : DbConfiguration
+    {
+        public MyConfig()
+        {
+            //AddInterceptor(new NLogCommandInterceptor());
         }
     }
 }
